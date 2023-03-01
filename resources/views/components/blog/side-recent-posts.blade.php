@@ -9,6 +9,8 @@
         class="blog-img" 
         style="background-image: url({{ asset($recent_post->image ? 'storage/' . $recent_post->image->path : 'storage/placeholders/thumbnail_placeholder.svg' . '')  }});">
         </a>
+        <img style='width: 50%' src="/storage/{{ $recent_post->image ? 'storage/' . $recent_post->image->path : 'storage/placeholders/thumbnail_placeholder.svg'}}" class='img-responsive' alt="Post Thumbnail">
+
         <div class="desc">
             <p class="admin"><span>{{ $recent_post->created_at->diffForHumans() }}</span></p>
             <h2>

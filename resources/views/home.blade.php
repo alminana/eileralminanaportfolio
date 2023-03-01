@@ -4,64 +4,75 @@
 
 @section('content')
 
-<div id="service" class="colorlib-blog">
+
+
+ <div id="service" class="colorlib-blog">
     <div class="container">
         <div class="row">
             <div class="section-title position-relative text-center mb-5 pb-2 wow fadeInUp" data-wow-delay="0.1s">
                 <h1 class="position-relative d-inline text-primary ps-4">All Projects</h1>
                 <h1 class="mt-2">List of Finish Projects</h1>
             </div>
-            <div class="col-md-9 posts-col">
-
-            @forelse($posts as $post)
-
-            <div class="block-21 d-flex animate-box post">
-                <a 
-                href="{{ route('posts.show', $post) }}" 
-                class="blog-img" 
-                style="background-image: url({{ asset('storage/' . $post->image->path. '')  }});"></a>
-                {{-- <div class="text">
-                   <h3 class="heading"><a href="{{ route('posts.show', $post) }}">{{ $post->title }}</a></h3>
-                   <p class="excerpt">{{ $post->excerpt }}</p>
-                   <div class="meta">
-                       <div><a class='date' href="#"><span class="icon-calendar"></span>  {{ $post->created_at->diffForHumans() }}</a></div>
-                       <div><a href="#"><span class="icon-user2"></span> {{ $post->author->name }}</a></div>
-                        <div class="comments-count">
-                            <a href="{{ route('posts.show', $post) }}#post-comments">
-                                <span class="icon-chat"></span> {{ $post->comments_count }}
-                            </a>
+            <div class="col-md-9 ">
+                <main class="my-5">
+                    <div class="container">
+                   
+                
+                        <div class="row">
+                            
+                    @forelse($posts as $post)
+                          <div class="col-lg-4 col-md-12 mb-4">
+                            <div class="card">
+                              <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                <a href="{{ route('posts.show', $post) }}"><img style='width: 100%; height:100%;' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='img-responsive' alt="Post Thumbnail">
+                                </a>
+                                <a href="#!">
+                                  <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                </a>
+                              </div>
+                              <div class="card-body">
+                                <h5 class="card-title">{{ $post->title }}</h5>
+                                <p class="card-text" style="text-align: justify">
+                                    {{ $post->excerpt }}
+                                </p>
+                                <div  style="display:flex; font-size:20px; text-align: center">
+                                    <div style="text-align: left"><i class="fa-solid fa-calendar"></i>
+                                        <a class='date' href="#"><span class="icon-calendar">
+                                            </span>  {{ $post->created_at->diffForHumans() }}
+                                        </a>
+                                    </div>
+                                    &nbsp;&nbsp;&nbsp;<div><a href="#"><span class="icon-user2"><i class="fa-solid fa-user"></i>{{ $post->author->name }}</span></a></div>
+                                    &nbsp;&nbsp;<div class="comments-count"><i class="fa-solid fa-comment"></i>
+                                         <a href="{{ route('posts.show', $post) }}#post-comments">
+                                             <span class="icon-chat"></span>Comment {{ $post->comments_count }}
+                                         </a>
+                                     </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          @empty
+                          <p class='lead'>There are no posts to show.</p>
+                         @endforelse
                         </div>
-                   </div>
-                </div> --}}
-            </div> 
-            <div>
-                <h3 class="heading"><a href="{{ route('posts.show', $post) }}">{{ $post->title }}</a></h3>
-                <div class="text" style="display: flex;  ;
-                font-size: 20px;
-                margin-right: 10px; margin- ">
-                   &nbsp; <div><a class='date' href="#"><span class="icon-calendar"></span>  {{ $post->created_at->diffForHumans() }}</a></div>
-                    &nbsp; <div><a href="#"><span class="icon-user2"></span> {{ $post->author->name }}</a></div>
-                    &nbsp; <div class="comments-count">
-                         <a href="{{ route('posts.show', $post) }}#post-comments">
-                             <span class="icon-chat"></span> {{ $post->comments_count }}
-                         </a>
-                     </div>
-                </div>
-                <br>
-            </div>
-
-            @empty
-                <p class='lead'>There are no posts to show.</p>
-            @endforelse
-            
-            {{ $posts->links() }}
-
+                
+                     
+                      </section>
+                      <!--Section: Content-->
+                
+                      <!-- Pagination -->
+                      <nav class="my-4" aria-label="...">
+                        <ul class="pagination pagination-circle justify-content-center">
+                            {{ $posts->links() }}
+                        </ul>
+                      </nav>
+                    </div>
+                  </main>
              </div>
-
-            <!-- SIDEBAR: start -->
+          
             <div class="col-md-3 animate-box">
                 <div class="sidebar">
-                    
+                    <br><br><br>
                     <x-blog.side-categories :categories="$categories"/>
 
                     <x-blog.side-recent-posts :recentPosts="$recent_posts"/>
@@ -73,7 +84,6 @@
         </div>
     </div>
 
-      <!-- Tools -->
       <div id="tools" class="container logo-slider">
         <div class="section-title position-relative text-center mb-5 pb-2 wow fadeInUp" data-wow-delay="0.1s">
             <h1 class="position-relative d-inline text-primary ps-4">My Tools</h1>
@@ -120,8 +130,8 @@
                 <img style="width:auto; height:100px;" src="{{{asset('template2/img/node.png')}}}" alt="" />
             </div>
         </div>
-    </div>
-    <!-- Tools -->
+    </div> --}}
+
 
     {{-- contact --}}
     <div class="colorlib-contact" id="contact">

@@ -39,8 +39,7 @@
 						<div class="row row-pb-lg">
 							<div class="col-md-12 animate-box">
 								<div class="classes class-single">
-									<div class="classes-img" style="height:500px; width:1000px; background-image: url({{ asset($post->image ? 'storage/' . $post->image->path : 'storage/placeholders/thumbnail_placeholder.svg' . '')  }});">
-									</div>
+									<img style='width: 100%; height:100%;' src="/storage/{{ $post->image ? $post->image->path : 'placeholders/thumbnail_placeholder.svg' }}" class='img-responsive' alt="Post Thumbnail">
 									<div class="desc desc2">
 										{!! $post->body !!}
 									</div>
