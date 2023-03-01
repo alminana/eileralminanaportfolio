@@ -1,0 +1,14 @@
+.block-21 {
+
+  height: 300px;
+  margin-bottom: 30px;
+
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap; }
+  .block-21 .blog-img {
+    width: 40%; 
+
+  }
