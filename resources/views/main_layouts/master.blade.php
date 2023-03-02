@@ -69,7 +69,21 @@
                             </div>
                         </div>
                         <a href="#contact" class="nav-item nav-link">Contact</a>
-                        <a href="" class="nav-item nav-link">Login</a>
+                        @guest
+                        <a  href="{{route('login')}}"   class="nav-item nav-link">Login</a>
+                                @endguest
+                        @auth
+                        <a  class="nav-item nav-link" onclick="event.preventDefault();
+                        document.getElementById('nav-logout-form').submit()" 
+                        href="#">Logout</a>
+
+                        <form id="nav-logout-form" action="{{ route('logout') }}" method="POST">
+                            @csrf
+                        </form>
+                        </li>
+                        </ul>
+                        </li>
+                        @endauth
                     </div>
                 </div>
             </nav>
@@ -84,7 +98,7 @@
                             <a href="{{route('contact.create')}}" class="btn btn-outline-light py-sm-3 px-sm-5 rounded-pill animated slideInRight">Contact Us</a>
                         </div>
                         <div class="col-lg-6 text-center text-lg-start">
-                            <img class="img-fluid" src="{{asset('template2/img/hero.png')}}" alt="">
+                            {{-- <img class="img-fluid" src="{{asset('template2/img/programming.png')}}" alt=""> --}}
                         </div>
                     </div>
                 </div>
